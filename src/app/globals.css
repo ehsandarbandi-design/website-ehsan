@@ -1,0 +1,55 @@
+:root {
+  --ink: #000000;
+  --muted: #918f85;
+  --bg: #ffffff;
+
+  /* Figma text color styles (case study). */
+  --text-title: #2d2c2b;
+  --text-body: #918f85;
+  --text-bold: #4b4a4a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+}
+
+/*
+ * Hide the OS arrow on mouse/trackpad devices from the first paint (plain CSS, no JS),
+ * so only the custom cursor dot is visible. Touch devices keep their default behaviour.
+ */
+@media (hover: hover) and (pointer: fine) {
+  html,
+  html * {
+    cursor: none !important;
+  }
+}

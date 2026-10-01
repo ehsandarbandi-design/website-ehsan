@@ -1,0 +1,247 @@
+/*
+ * Case study — Figma node 103:3150, components from "Components library" (110:3901).
+ * Desktop: 600px column + 60px gap + 240px menu, centred as one 900px block.
+ */
+
+.page {
+  min-height: 100vh;
+  padding-bottom: 160px;
+  color: var(--text-title);
+  overflow-x: clip;
+}
+
+/* ---------- Layout ---------- */
+
+.layout {
+  display: grid;
+  grid-template-columns: 600px 240px;
+  column-gap: 60px;
+  width: 900px;
+  margin: 280px auto 0; /* column top at 280px; the navbar is fixed, so it takes no space */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  min-width: 0;
+}
+
+/* ---------- Title (110:3323) ---------- */
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  line-height: 1.5;
+}
+
+.title h1 {
+  margin: 0;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: -2.4px;
+  line-height: 1.5;
+  color: var(--text-title);
+}
+
+.title p {
+  font-size: 20px;
+  color: var(--text-bold);
+}
+
+/* ---------- Body 1 / 2 / 3 column (110:3324, 110:3853, 110:3852) ---------- */
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  scroll-margin-top: 128px; /* clear the fixed navbar */
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--font-inconsolata), ui-monospace, monospace;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--text-body);
+}
+
+/* Figma H2 — section headings. */
+.heading {
+  margin: 0;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -1.92px;
+  line-height: 1.5;
+  color: var(--text-title);
+}
+
+/* Figma H3 — headings inside Body 2 / 3 column. */
+.subheading {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-title);
+}
+
+.body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--text-body);
+}
+
+.body strong {
+  font-weight: 400;
+  color: var(--text-bold);
+}
+
+.columns {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.columns[data-count="2"] > .column {
+  width: 290px;
+}
+
+.columns[data-count="3"] > .column {
+  width: 190px;
+}
+
+/* ---------- Image Free (110:3351) ---------- */
+
+.image {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: -10px 10px 20px 0 rgba(65, 55, 55, 0.2);
+}
+
+.image img,
+.image video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Swipeable row of Image Free slides; padding keeps the shadows from being clipped. */
+.gallery {
+  display: flex;
+  gap: 24px;
+  margin: -20px -40px -70px;
+  padding: 20px 40px 70px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 40px;
+  scrollbar-width: none;
+  outline: none;
+}
+
+.gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 85%;
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+/* ---------- Section menu (110:3667) ---------- */
+
+.status {
+  position: relative;
+  flex: none;
+  width: 22px;
+  height: 24px;
+}
+
+.aside {
+  min-width: 0;
+}
+
+/* Stays put, vertically centred in the viewport, while the content scrolls. */
+.menu {
+  position: sticky;
+  top: 50%;
+  translate: 0 -50%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menuDot {
+  position: absolute;
+  top: 3px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.menuItem {
+  display: flex;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-title);
+  text-decoration: none;
+}
+
+.menuItem:focus-visible {
+  outline: 1px solid var(--text-body);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Responsive ---------- */
+
+/* No room for the side menu: single centred column. */
+@media (max-width: 999px) {
+  .layout {
+    grid-template-columns: minmax(0, 600px);
+    justify-content: center;
+    width: auto;
+    padding: 0 24px;
+  }
+
+  .aside {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .layout {
+    margin-top: 174px;
+    padding: 0 16px;
+  }
+
+  .columns {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .columns[data-count] > .column {
+    width: 100%;
+  }
+
+  .gallery {
+    margin: -20px -16px -70px;
+    padding: 20px 16px 70px;
+    scroll-padding-left: 16px;
+  }
+}

@@ -1,0 +1,165 @@
+/*
+ * Desktop geometry follows the 1728px Figma frame: the fixed navbar's 1148px row is centred
+ * (logo at x=290), and the content column sits under the name at x=385 (logo 68 + gap 27).
+ * Rows = 22px status slot + 8px + 600px text column ("Main Module", node 56:1846).
+ */
+.page {
+  --left: max(24px, calc(50vw - 574px));
+  --indent: 95px;
+  --status: 22px;
+  --gutter: 8px;
+  --text-col: clamp(320px, 34.72vw, 600px);
+  /* Preview sits 16px right of the text column; shrinks on narrower screens. */
+  --preview-gap: 16px;
+  --preview-w: clamp(240px, calc(100vw - var(--left) - var(--indent) - var(--status) - var(--gutter) - var(--text-col) - var(--preview-gap) - 32px), 600px);
+
+  position: relative;
+  min-height: 100vh;
+  padding: 0 0 126px;
+  overflow-x: clip;
+}
+
+.dot {
+  position: absolute;
+  top: 3px; /* 24px slot, 18px circle */
+  left: calc(var(--left) + var(--indent) + 2px);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.main {
+  width: calc(var(--status) + var(--gutter) + var(--text-col));
+  margin: 280px 0 0 calc(var(--left) + var(--indent)); /* navbar is fixed, so it takes no space */
+}
+
+.intro {
+  margin-bottom: 80px;
+}
+
+.projects {
+  margin-bottom: 128px; /* 160 in Figma, minus the last row's 32px hit-area padding */
+}
+
+/* Row spacing lives in padding so the gap between rows stays part of the hover target. */
+.projects .row {
+  padding-bottom: 32px;
+}
+
+/* A hovered project is 213px tall in Figma ("Main Module"), plus the 32px gap below it. */
+.projects .row[data-expanded] {
+  min-height: calc(213px + 32px);
+}
+
+.links .row {
+  padding-bottom: 16px;
+}
+
+.links .row:last-child {
+  padding-bottom: 0;
+}
+
+.row {
+  position: relative;
+  display: flex;
+  gap: var(--gutter);
+  align-items: flex-start;
+  outline: none;
+}
+
+.status {
+  flex: none;
+  width: var(--status);
+  height: 24px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: var(--text-col);
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+.title {
+  color: var(--text-title);
+  width: fit-content;
+}
+
+.subtitle {
+  color: var(--text-body);
+}
+
+/* Figma "Paragraph 2": Inter Light 16 / 1.5. */
+.description {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--text-body);
+}
+
+/* Links hug their text so the click target is the words, not the full column. */
+.link {
+  width: auto;
+  max-width: var(--text-col);
+  color: inherit;
+  text-decoration: none;
+}
+
+.row:focus-visible .title,
+.link:focus-visible .title {
+  outline: 1px solid var(--muted);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/*
+ * Figma "Image" in Main Module (56:1845): 600×407, 8px radius, the same soft shadow as the case study
+ * "Image Free", 16px right of the text and raised 114px (scaled with the preview width).
+ */
+.preview {
+  position: absolute;
+  top: calc(var(--preview-w) * -0.19);
+  left: calc(var(--status) + var(--gutter) + var(--text-col) + var(--preview-gap));
+  width: var(--preview-w);
+  aspect-ratio: 600 / 407;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: -10px 10px 20px 0 rgba(65, 55, 55, 0.2);
+  pointer-events: none;
+  transform-origin: left center;
+  z-index: 1;
+}
+
+.preview img {
+  object-fit: cover;
+}
+
+.video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Mobile — Figma 440px frame: 16px margin, 56×46 logo, column at x=72, 339 wide. */
+@media (max-width: 767px) {
+  .page {
+    --left: 16px;
+    --indent: 56px;
+    --text-col: calc(100vw - 72px - 29px - var(--status) - var(--gutter));
+    padding: 0 0 48px;
+  }
+
+  .main {
+    margin-top: 196px;
+  }
+
+  .projects {
+    margin-bottom: 68px; /* 100 in Figma */
+  }
+}
