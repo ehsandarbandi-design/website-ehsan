@@ -13,7 +13,7 @@ const img = (file: string, width: number, height: number, alt: string): CaseImag
 // → Outcomes → What I learned.
 export const dustinV2: CaseStudy = {
   slug: "dustin-v2",
-  title: "A realtor site that grows itself",
+  title: "A website that grows without a designer",
   description: "Dustin Chaveleh • Shipped 2026",
   color: projects.find((p) => p.id === "dustin")!.color!,
   menu: [
@@ -27,11 +27,11 @@ export const dustinV2: CaseStudy = {
   ],
   blocks: [
     // Cover
-    { type: "title", title: "A realtor site that grows itself", subtitle: "Dustin Chaveleh • Shipped 2026" },
+    { type: "title", title: "A website that grows without a designer", subtitle: "Dustin Chaveleh • Shipped 2026" },
     {
       type: "video",
-      src: "/case-studies/dustin/overview.mp4",
-      image: img("overview-poster.webp", 1920, 1075, "Walkthrough of the rebuilt site and the Real Estate IQ game"),
+      src: "/case-studies/dustin/header.mp4",
+      image: img("header-poster.webp", 1920, 1105, "The rebuilt site's home page: a San Francisco skyline above the fog"),
     },
     {
       type: "columns",
@@ -98,7 +98,7 @@ export const dustinV2: CaseStudy = {
     {
       type: "text",
       id: "journey",
-      eyebrow: "The Journey · Positioning",
+      eyebrow: "The Journey · Dustin's Story",
       heading: "Not another local expert. An investor's eye.",
       body: [
         "**How might we make a stranger trust an agent with no track record?**",
@@ -204,7 +204,7 @@ export const dustinV2: CaseStudy = {
       heading: "Make every player a messenger.",
       body: [
         "**What if every player brought a friend?**",
-        "I added a **Play with Friends** button: create a challenge link, send it, and your friends play the same homes and compare scores. It spreads the game for free, and playing against people you know is more engaging than playing alone.",
+        "I added a **Challenge Friends** button: create a challenge link, send it, and your friends play the same homes and compare scores. It spreads the game for free, and playing against people you know is more engaging than playing alone.",
         "Testing with friends surfaced one more fix: the price slider should start at the home's list price, not an arbitrary number. It gives every guess a realistic anchor. I shipped it a week after launch.",
       ],
     },
@@ -268,9 +268,11 @@ export const dustinV2: CaseStudy = {
         },
       ],
     },
-    // TODO(Ehsan): replace the moodboard and rebuilt-site placeholders below.
-    { type: "image", image: img("design-moodboard.webp", 2000, 1125, "Placeholder for the moodboard") },
-    { type: "image", image: img("design-ui-sheet.webp", 1920, 1080, "UI sheet: typography, colors, buttons, form fields and logos") },
+    {
+      type: "image",
+      image: img("design-ui-sheet.webp", 1920, 1080, "UI sheet: typography, colors, buttons, form fields and logos"),
+      stroke: true,
+    },
     {
       type: "text",
       body: [
@@ -293,9 +295,21 @@ export const dustinV2: CaseStudy = {
         { ...img("logo-d-organic.webp", 960, 540, "Direction D: organic forms"), caption: "D · Organic forms" },
       ],
     },
-    { type: "image", image: img("artifact-3-rebuilt-site.webp", 2000, 1125, "Placeholder for the rebuilt site") },
     {
       type: "text",
+      heading: "The rebuilt site.",
+      body: [
+        "Everything comes together here: the strict system, the wordmark, and the game and market charts built into the site instead of pasted on top.",
+      ],
+    },
+    {
+      type: "video",
+      src: "/case-studies/dustin/overview.mp4",
+      image: img("overview-poster.webp", 1920, 1075, "Walkthrough of the rebuilt site and the Real Estate IQ game"),
+    },
+    {
+      type: "text",
+      heading: "The content kit.",
       body: [
         "Alongside the site, Dustin gets a **content kit**: documentation, AI prompts and data files for adding posts, sections and images that still look like the rest of the site.",
       ],

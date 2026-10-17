@@ -8,216 +8,261 @@ const img = (file: string, width: number, height: number, alt: string): CaseImag
   alt,
 });
 
+// Copy, order and images follow the Figma "Desktop" frame (node 103:3150) exactly.
 export const nexus: CaseStudy = {
   slug: "nexusai",
   title: "Nexus AI",
-  description: "A Unified, Intuitive AI Experience for Coca-Cola employees",
+  description: "Rebuilding the AI tool employees did not use",
   color: projects.find((p) => p.id === "nexus")!.color!,
   menu: [
+    { id: "overview", label: "Overview" },
     { id: "problem", label: "The Problem" },
-    { id: "stakeholder-alignment", label: "Stakeholder Alignment" },
-    { id: "strategic-direction", label: "Strategic Direction" },
-    { id: "hardest-decision", label: "The Hardest Decision" },
-    { id: "pushback", label: "The pushback" },
-    { id: "design", label: "The Design" },
-    { id: "visual-language", label: "Visual Language" },
-    { id: "outcome", label: "Outcome" },
+    { id: "exploration", label: "Exploration" },
+    { id: "stakeholder-alignment", label: "Stakeholder alignment" },
+    { id: "design-direction", label: "Design direction" },
+    { id: "impact", label: "Impact" },
     { id: "reflection", label: "Reflection" },
   ],
   blocks: [
-    { type: "title", title: "Nexus AI", subtitle: "A Unified, Intuitive AI Experience for Coca-Cola employees" },
+    // Title
+    { type: "title", title: "Nexus AI", subtitle: "Rebuilding the AI tool employees did not use" },
     { type: "image", image: img("hero.png", 2500, 1616, "Nexus AI screens laid out on a grid") },
-    {
-      type: "text",
-      id: "problem",
-      heading: "The Problem",
-      body: [
-        "The previous internal AI tool was technically live — but effectively abandoned. Employees logged in, had a poor experience, and went back to personal ChatGPT and manual SharePoint searches. No real company data integration, an unintuitive interface, and off-brand visuals. Leadership summed it up directly:",
-        "\"People sign in — but they don't use it.\"",
-        "A new team was assembled. I joined as the sole designer, tasked with rebuilding from scratch. Same deadline, same engineering constraints — and 50,000+ employees who'd already been given one reason not to bother.",
-      ],
-    },
+
+    // Metadata
     {
       type: "columns",
       items: [
-        { heading: "Role", body: ["Lead Product Designer, Sole Designer"] },
+        { heading: "Role", body: ["Product Designer, sole designer"] },
         { heading: "Timeline", body: ["4 months, kickoff to handoff"] },
       ],
     },
     {
       type: "columns",
       items: [
-        { heading: "Deliverables", body: ["End-to-end UX, UI, Design System"] },
-        { heading: "Audience", body: ["50,000+ company-wide"] },
+        { heading: "Team", body: ["2 Business Analysts · 1 Project Manager · 8 Engineers across India and the US"] },
+        { heading: "Skills", body: ["Product Strategy · UX Design · UI Design · Design Systems · Stakeholder Alignment"] },
       ],
     },
-    { type: "image", image: img("new-ui.png", 1800, 1300, "The new Nexus AI interface") },
-    { type: "image", image: img("old-ui.png", 1800, 1300, "The previous internal AI tool") },
+
+    // Overview
+    {
+      type: "text",
+      id: "overview",
+      heading: "Overview",
+      body: [
+        "Nexus AI is Coca-Cola's internal conversational AI tool, using retrieval-augmented generation (RAG) to ground AI responses in the company's proprietary documents. The goal was to make internal knowledge easier to access while giving employees a faster, more trustworthy way to work with company information.",
+      ],
+    },
+    { type: "image", image: img("overview.webp", 1024, 609, "Nexus AI on a phone and a laptop") },
+
+    // The Problem
+    {
+      type: "text",
+      id: "problem",
+      eyebrow: "The Problem",
+      heading: "Live, but abandoned",
+      body: [
+        "Coca-Cola’s AI app was live, but employees abandoned it. They signed in, had a poor first experience, and returned to tools they already knew, like ChatGPT, Copilot, and SharePoint. When leadership described the problem, it was simple:",
+        "**\"People sign in, but they don't use it.\"**",
+        "The brief was ambiguous; it asked us to design a better UI and fix all the usability issues. The challenge wasn't simply to make the interface look better. We needed to understand why employees had abandoned the product and fix the underlying experience.",
+      ],
+    },
+    { type: "image", image: img("comparison.webp", 2500, 903, "The old internal AI tool next to the new Nexus AI") },
+
+    // Exploration
+    {
+      type: "text",
+      id: "exploration",
+      eyebrow: "Exploration",
+      heading: "Exploration",
+      body: ["I started by auditing the existing product. Three problems stood out."],
+    },
+    {
+      type: "text",
+      sub: true,
+      heading: "It ignored existing AI mental models",
+      body: [
+        "Employees were already familiar with conversational AI tools like ChatGPT and Copilot, but Nexus forced them to learn a different, unnecessary interaction model.",
+      ],
+    },
+    {
+      type: "text",
+      sub: true,
+      heading: "It didn't feel like Coca-Cola",
+      body: [
+        "The generic, off-brand interface eroded trust. Employees were less likely to rely on a product that didn’t look official or meet Coca-Cola’s quality standards.",
+      ],
+    },
+    {
+      type: "text",
+      sub: true,
+      heading: "It wasn't designed to grow",
+      body: [
+        "The UI had been designed around its current feature set rather than a scalable system. Adding new functionality would require moving existing elements or redesigning parts of the interface.",
+      ],
+    },
+    { type: "image", image: img("audit.webp", 1024, 609, "The old interface with its usability issues numbered 1 to 6") },
+
+    // Stakeholder alignment
     {
       type: "text",
       id: "stakeholder-alignment",
-      eyebrow: "Kickoff",
-      heading: "Stakeholder Alignment",
+      eyebrow: "Stakeholder alignment",
+      heading: "From conflicting requests to a shared direction",
       body: [
-        "At the start of the project, I partnered with the product owner and two cross-functional teams working in different time zones to ensure deadlines could be met. A senior stakeholder emphasized the need for a design that felt impressive and strongly aligned with Coca-Cola’s brand identity. At the same time, the engineering teams required a solution that was simple enough to begin building the following week. To align everyone quickly, I synthesized the requirements and reviewed all available Coca-Cola brand resources. I spoke with other internal design teams to understand how they approached and maintained design consistency. This early alignment provided the foundation for moving into research and design with clarity and speed.",
-      ],
-    },
-    { type: "image", image: img("goals.webp", 2500, 720, "Coca-Cola brand illustration") },
-    {
-      type: "columns",
-      items: [{ heading: "Increase onboarding" }, { heading: "Increase Efficiency" }],
-    },
-    {
-      type: "columns",
-      items: [{ heading: "Build confidence in AI" }, { heading: "Maintain brand integrity" }],
-    },
-    {
-      type: "text",
-      id: "strategic-direction",
-      eyebrow: "Strategic Direction",
-      heading: "Familiarity wasn't a cop-out. It was the strategy.",
-      body: [
-        "I audited the AI interfaces employees were already using — ChatGPT, Copilot, Gemini — alongside Coca-Cola's brand guidelines. Two things became clear immediately.",
-        "**Pattern convergence is a signal, not laziness.** Every major AI interface uses the same structural model — centered input, clean thread, minimal chrome — because users already know how to operate inside it. For a tool fighting an adoption problem, any deviation introduces friction it can't afford.",
-        "**Branding is a trust mechanism.** The previous tool's off-brand feel wasn't just aesthetic — it made the product feel unsanctioned. The redesign had to make Nexus AI feel unmistakably Coca-Cola so employees would choose it over the personal tools they'd defaulted to.",
-      ],
-    },
-    { type: "image", image: img("chatgpt.webp", 1956, 1030, "ChatGPT interface") },
-    { type: "image", image: img("gemini.webp", 968, 568, "Gemini interface") },
-    { type: "image", image: img("copilot.webp", 1724, 930, "Copilot interface") },
-    {
-      type: "columns",
-      items: [
-        {
-          heading: "ChatGPT",
-          body: [
-            "**Conversational:** Excels at casual conversation and creative writing.",
-            "**Versatility:** Handles various tasks like code debugging and writing different content formats.",
-            "**Limited Integration:** Primarily a standalone web app, lacking integration with other tools.",
-            "**Lacks source attribution:** doesn't provide sources for its responses, hindering credibility for factual inquiries.",
-          ],
-        },
-        {
-          heading: "Gemini",
-          body: [
-            "**Accessibility:** Straightforward interface with clear prompts and functionalities.",
-            "**Search Integration:** Seamlessly integrates with search engines for fact-checking and research.",
-            "**Focus:** Leans more towards information retrieval and completion than open-ended conversation.",
-            "**Limited Creativity:** May struggle with highly creative writing prompts compared to ChatGPT.",
-          ],
-        },
-        {
-          heading: "Copilot",
-          body: [
-            "**Deep Integration:** Integrates directly with developer environments like Visual Studio Code, boosting workflow.",
-            "**Inconsistent responsiveness:** UI elements may disappear on smaller screens, creating a frustrating user experience.",
-            "**Inconsistent Intuitive Interaction:** Some interactions are not as intuitive as expected. Users may encounter unexpected behavior.",
-          ],
-        },
-      ],
-    },
-    {
-      type: "text",
-      id: "hardest-decision",
-      eyebrow: "The Hardest Decision",
-      heading: "The brief asked for \"impressive.\" I delivered minimal. Here's why.",
-      body: [
-        "The initial brief asked for a \"wow effect.\" I developed five visual directions. The complex ones were exciting — but when mapped against the engineering timeline and QA capacity, the answer was clear. I called a meeting with leadership and presented an effort-impact analysis across all five.",
+        "The design director wanted an impressive, visually distinctive UI, while the project manager needed a design engineers could implement quickly.",
+        "",
+        "I reframed these competing priorities as design constraints and explored three UI directions. Using effort-impact analysis, I compared the tradeoffs of each option and aligned the team around a polished, on-brand design that could be delivered on time without unnecessary implementation and QA risks.",
       ],
     },
     {
       type: "gallery",
       items: [
-        { ...img("direction-glass-morphism.webp", 2500, 1189, "Glass morphism direction"), caption: "Glass Morphism" },
-        { ...img("direction-dark-ui.webp", 2500, 1189, "Dark UI direction"), caption: "Dark UI" },
-        { ...img("direction-minimal-ui.webp", 2500, 1189, "Minimal UI direction"), caption: "Minimal UI" },
-        { ...img("direction-complex-gradient.webp", 2500, 1189, "Complex gradient direction"), caption: "Complex Gradient" },
-        { ...img("direction-large-text.webp", 2500, 1189, "Large text direction"), caption: "Large Text" },
+        { ...img("direction-mobile-bold.webp", 2000, 951, "Bold direction on five phone screens"), caption: "Large Text" },
+        { ...img("direction-mobile-minimal.webp", 2000, 951, "Minimal direction on five phone screens"), caption: "Minimal UI" },
+        { ...img("direction-mobile-glass.webp", 2000, 951, "Glass morphism direction on five phone screens"), caption: "Glass Morphism" },
+      ],
+      label: "UI directions",
+      contained: true,
+    },
+    { type: "image", image: img("constraints.webp", 1024, 300, "Brand trust + usability + scalability + engineering feasibility + timeline") },
+    {
+      type: "text",
+      body: [
+        "This gave the team a shared basis for decision-making and moved the conversation away from subjective opinions about what looked “impressive.”",
+      ],
+    },
+
+    // Design around what users already knew
+    {
+      type: "text",
+      id: "mental-models",
+      heading: "Design around what users already knew",
+      body: [
+        "Familiarity was the strategy. Employees were already using AI tools like ChatGPT, Copilot, and Gemini—which set clear expectations for how conversational AI should work:",
+        "Prompt input at the bottom, Conversation history on the left, Minimal visual distraction, Familiar onboarding pattern and navigation. Rather than reinventing the wheel, we intentionally built on these familiar patterns. This let us focus design efforts on Nexus AI’s unique challenges: trust, enterprise content, and scalability.",
+      ],
+    },
+    { type: "image", image: img("ai-tools.webp", 1024, 520, "ChatGPT, Gemini and Copilot interfaces side by side") },
+
+    // Design direction
+    {
+      type: "text",
+      id: "design-direction",
+      eyebrow: "design direction",
+      heading: "Make Coca-Cola feel present without adding unnecessary complexity",
+      body: [
+        "Coca-Cola’s strong visual identity was built for marketing, not internal tools. Coca-Cola’s internal products often lacked brand consistency.",
+        "I explored three visual directions to find a balance between:",
+        "",
+        "**Coca-Cola's brand character + modern AI product patterns + engineering feasibility.**",
+        "",
+        "The more restrained direction gave us the strongest balance of: Brand recognition, Visual quality, Usability, Implementation speed, Scalability. I presented the tradeoffs to leadership and got alignment before moving into detailed UI design.",
+      ],
+    },
+    { type: "image", image: img("ui-components.webp", 1024, 609, "Nexus AI interface pieces: sidebar, help menu, send button and What's new card") },
+
+    // Design System
+    {
+      type: "text",
+      id: "design-system",
+      eyebrow: "Design System",
+      heading: "Build a system, not just screens",
+      body: [
+        "With the visual direction set, I built a lightweight design system for Nexus AI—focused on providing just enough structure for speed and consistency. Reusable patterns supported future features without major redesigns, giving engineering a clear path forward and the product room to evolve.",
+      ],
+    },
+    { type: "image", image: img("design-system-overview.webp", 2500, 1406, "Nexus AI design system: typography, colors and button components") },
+
+    // Solve the trust problem
+    {
+      type: "text",
+      id: "trust",
+      eyebrow: "Solve the trust problem",
+      heading: "Users need to verify AI, not simply believe it",
+      body: [
+        "The biggest product problem wasn't whether Nexus AI could generate an answer. It was whether employees could trust and verify that answer. AI-generated responses are probabilistic; employees needed a way to understand an answer's source, especially when making significant decisions.",
       ],
     },
     {
       type: "text",
-      id: "pushback",
-      heading: "The pushback — and how I handled it",
+      sub: true,
+      heading: "Solution 1: Confidence scores",
       body: [
-        "The design director's reaction was immediate: \"This looks generic.\" My argument: \"Impressive\" is a feeling, not a design requirement. A polished, on-brand product that ships on time is worth more than an ambitious UI that ships broken or late. The effort-impact data made the case. He accepted the rationale — and the timeline held.",
+        "A percentage could communicate how confident the system was in its answer.",
+        "",
+        "**Problem:** a number doesn't tell the user why they should trust an answer or where the information came from.",
       ],
     },
     {
       type: "text",
-      id: "design",
-      eyebrow: "The Design",
-      heading: "One interface, flexible enough for every department.",
+      sub: true,
+      heading: "Solution 2: Source pills",
       body: [
-        "The core model mirrors what employees already knew — centered chat, clean thread, minimal chrome — with Coca-Cola's brand layer on top. Midway through the project, the finance PM requested a fully custom UI. I pushed back: familiar patterns matter more than differentiation for enterprise AI adoption. What finance needed wasn't a new interface — it was structured output formatting (tables, graphs, data responses) that the existing system already supported. They agreed. One coherent system served every department — and stayed extensible enough to be applied to two more AI tools.",
-        // TODO(Ehsan): this sentence is cut off on the old site ("…two more AI tools after I") — finish it.
+        "We could show the documents used to generate the answer as compact source indicators.",
+        "",
+        "**Problem:** users still had to leave the conversation and search through the document themselves to verify important information.",
       ],
     },
+    { type: "image", image: img("source-pills.webp", 1024, 609, "Source pills under an answer, with a document preview on hover") },
     {
       type: "text",
-      id: "visual-language",
-      eyebrow: "Visual Language",
-      heading: "Design System & Visual Language",
+      sub: true,
+      heading: "Solution 3: Expandable source references",
       body: [
-        "To ensure consistency and scalability, I built a lightweight design system tailored to Nexus AI. I started by auditing Coca-Cola’s existing brand assets and design language, then extended them into reusable components, patterns, and guidelines that aligned with both Coca-Cola’s identity and the needs of an AI interface. Since development resources were limited, I prioritized simplicity and modularity, making sure the system could be implemented quickly without sacrificing brand integrity. The result was a visual language that felt Coca-Cola unmistakably. Providing a foundation that the team could build on as the product evolved.",
+        "The final direction showed the supporting resources directly alongside the response. Users could expand a source and see the relevant information from the original document as bullet points. The user didn't have to simply trust the AI. They could quickly inspect the evidence behind the answer.",
+        "This reduced the distance between:",
+        "",
+        "**AI answer → source → verification**",
       ],
     },
-    { type: "image", image: img("design-system.webp", 2500, 1406, "Nexus AI design system: typography, colors and components") },
+    { type: "image", image: img("source-expandable.webp", 1024, 609, "An expanded source reference showing the document's key points as bullets") },
+
+    // Impact
     {
       type: "text",
-      id: "outcome",
-      eyebrow: "Outcome",
-      heading: "From under 100 users to 500 in the test group alone.",
+      id: "impact",
+      eyebrow: "Impact",
+      heading: "Feedback showed the direction was working",
       body: [
-        "Nexus AI entered pre-launch testing in the final weeks of my engagement. Active users grew from under 100 (previous tool) to approximately 500 — without a formal rollout. Test users and stakeholders consistently cited usability and branding as the reasons it felt different from the tool they'd abandoned.",
+        "Nexus AI entered pre-launch testing after approximately two months. Around 500 users actively used the product during testing. The feedback consistently reinforced the design decisions:",
       ],
     },
     {
       type: "columns",
       items: [
-        {
-          heading: "5× user growth before official launch",
-          body: [
-            "The previous tool peaked under 100 active users. The rebuild reached ~500 in pre-launch testing ahead of the company-wide rollout to 50,000+.",
-          ],
-        },
-        {
-          heading: "2+ products built on the design system",
-          body: [
-            "The component library was handed off and immediately applied to at least two additional Coca-Cola AI tools, including marketing team extensions.",
-          ],
-        },
+        { body: ["The interface was intuitive and easy to use."] },
+        { body: ["Users could verify AI-generated responses."] },
+        { body: ["The interface felt more aligned with Coca-Cola."] },
       ],
     },
-    { type: "image", image: img("outcome.webp", 2500, 1438, "Coca-Cola brand illustration") },
+    { type: "embed", src: "/case-studies/nexus/walkthrough.html", title: "Nexus AI walkthrough: asking a question and expanding a source", width: 1440, height: 900 },
+    {
+      type: "columns",
+      items: [
+        { heading: "~500", body: ["active users during pre-launch testing"] },
+        { heading: "4 months", body: ["kickoff to handoff, within the original timeline"] },
+      ],
+    },
+
+    // Reflection
     {
       type: "text",
       id: "reflection",
       eyebrow: "Reflection",
-      heading: "What I'd do differently.",
+      heading: "What I learned",
     },
     {
       type: "columns",
       items: [
         {
-          heading: "I'd Change",
-          body: [
-            "Get test group users in front of the visual directions earlier. User signal is harder to argue with than an effort-impact matrix — and it would have made the design director conversation shorter.",
-          ],
+          heading: "Align stakeholders through evidence earlier",
+          body: ["Effort-impact analysis resolved subjective debates, but involving real users earlier would have created even stronger alignment."],
         },
         {
-          heading: "I'd Change",
-          body: [
-            "Document design rationale more formally throughout. The component library was solid at handoff, but the thinking lived in my head. A decision log reduces drift when others extend the system.",
-          ],
+          heading: "Don't confuse \"impressive\" with good design",
+          body: ["Great product design solves real problems, meets constraints, and creates a foundation for growth—not just visual impact."],
         },
-      ],
-    },
-    {
-      type: "text",
-      heading: "Most Proud Of",
-      body: [
-        "Navigating the tension between what leadership wanted (impressive) and what the project could support (minimal, polished, on-brand) — and making that case in a room where I was the only designer. The numbers validated the call.",
       ],
     },
   ],

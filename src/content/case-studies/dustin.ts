@@ -12,27 +12,23 @@ const img = (file: string, width: number, height: number, alt: string): CaseImag
 // Ehsan's and Dustin's own games removed). Monthly figures are read off its charts and marked "about".
 export const dustin: CaseStudy = {
   slug: "dustin",
-  title: "A realtor site that grows itself",
+  title: "A website that grows without a designer",
   description: "Dustin Chaveleh • Shipped 2026",
   color: projects.find((p) => p.id === "dustin")!.color!,
   menu: [
     { id: "context", label: "Context" },
     { id: "artifacts", label: "Final Artifacts" },
-    { id: "first-site", label: "01 · The First Site" },
-    { id: "real-estate-iq", label: "02 · Real Estate IQ" },
-    { id: "rebuilt-site", label: "03 · The Rebuilt Site" },
-    { id: "content-kit", label: "04 · The Content Kit" },
     { id: "moments", label: "Key Design Moments" },
     { id: "impact", label: "Impact" },
     { id: "reflection", label: "Reflection" },
   ],
   blocks: [
     // Cover
-    { type: "title", title: "A realtor site that grows itself", subtitle: "Dustin Chaveleh • Shipped 2026" },
+    { type: "title", title: "A website that grows without a designer", subtitle: "Dustin Chaveleh • Shipped 2026" },
     {
       type: "video",
-      src: "/case-studies/dustin/overview.mp4",
-      image: img("overview-poster.webp", 1920, 1075, "Walkthrough of the rebuilt site and the Real Estate IQ game"),
+      src: "/case-studies/dustin/header.mp4",
+      image: img("header-poster.webp", 1920, 1105, "The rebuilt site's home page: a San Francisco skyline above the fog"),
     },
 
     // Metadata
@@ -64,6 +60,7 @@ export const dustin: CaseStudy = {
     },
     {
       type: "text",
+      eyebrow: "Dustin's Story",
       heading: "Not another local expert. An investor's eye.",
       body: [
         "I looked at how other agents present themselves. Almost every site says the same thing: a headshot, \"local expert,\" a listing search, a contact form.",
@@ -86,7 +83,6 @@ export const dustin: CaseStudy = {
       heading: "01 · The first site",
       body: ["A website-builder site made in two days: his story, his neighborhoods, and a way to reach him. Good enough to be real, fast enough to learn from."],
     },
-    // TODO(Ehsan): replace each artifact placeholder below with the final artwork.
     {
       type: "video",
       src: "/case-studies/dustin/first-site.mp4",
@@ -107,7 +103,11 @@ export const dustin: CaseStudy = {
       heading: "03 · The rebuilt site",
       body: ["A coded site on a strict design system, with the game and market charts built in instead of pasted on top. Launching soon."],
     },
-    { type: "image", image: img("artifact-3-rebuilt-site.webp", 2000, 1125, "Placeholder for the rebuilt site") },
+    {
+      type: "video",
+      src: "/case-studies/dustin/overview.mp4",
+      image: img("overview-poster.webp", 1920, 1075, "Walkthrough of the rebuilt site and the Real Estate IQ game"),
+    },
     {
       type: "text",
       id: "content-kit",
@@ -158,7 +158,7 @@ export const dustin: CaseStudy = {
       type: "text",
       heading: "Make every player a messenger.",
       body: [
-        "With no ad budget, the game had to spread on its own. I added a **Play with Friends** button: create a challenge link, send it, and your friends play the same homes and compare scores.",
+        "With no ad budget, the game had to spread on its own. I added a **Challenge Friends** button: create a challenge link, send it, and your friends play the same homes and compare scores.",
         "It does two jobs. Every challenge puts Dustin in front of someone new, and playing against people you know makes the game more engaging than playing alone.",
       ],
     },
@@ -215,9 +215,11 @@ export const dustin: CaseStudy = {
         },
       ],
     },
-    // TODO(Ehsan): replace with the moodboard.
-    { type: "image", image: img("design-moodboard.webp", 2000, 1125, "Placeholder for the moodboard") },
-    { type: "image", image: img("design-ui-sheet.webp", 1920, 1080, "UI sheet: typography, colors, buttons, form fields and logos") },
+    {
+      type: "image",
+      image: img("design-ui-sheet.webp", 1920, 1080, "UI sheet: typography, colors, buttons, form fields and logos"),
+      stroke: true,
+    },
     {
       type: "text",
       body: [

@@ -2,7 +2,6 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
-import { playHoverTick } from "@/lib/hoverSound";
 import styles from "./CaseStudy.module.css";
 
 /** Menu rows are 24px tall with a 12px gap. */
@@ -63,7 +62,6 @@ export default function SectionMenu({ items, color }: { items: { id: string; lab
           aria-current={item.id === active ? "location" : undefined}
           data-cursor-row=""
           data-cursor-interactive=""
-          onPointerEnter={() => playHoverTick()}
           onClick={(e) => {
             const el = document.getElementById(item.id);
             if (!el) return;

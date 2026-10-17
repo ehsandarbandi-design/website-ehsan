@@ -12,7 +12,6 @@ import {
 } from "motion/react";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { introRow, links, nameRow, projects, type Row } from "@/content/site";
-import { playHoverTick } from "@/lib/hoverSound";
 import { DESKTOP_HOVER, useMediaQuery } from "@/lib/useMediaQuery";
 import SiteNav from "./SiteNav";
 import styles from "./Portfolio.module.css";
@@ -63,10 +62,6 @@ export default function Portfolio() {
     else animate(dotY, target, spring);
     dotVisible.current = true;
   }, [active, dotY, reduceMotion]);
-
-  useEffect(() => {
-    if (active) playHoverTick();
-  }, [active]);
 
   const rowProps = (row: Row) => ({
     row,
@@ -225,6 +220,7 @@ function RowItem({ row, active, expandable, register, onActivate, onDeactivate }
       {expandable && row.image && (
         <motion.div
           className={styles.preview}
+          style={row.previewHeight ? ({ "--preview-h": row.previewHeight } as React.CSSProperties) : undefined}
           aria-hidden={!expanded}
           initial={false}
           animate={expanded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.96 }}

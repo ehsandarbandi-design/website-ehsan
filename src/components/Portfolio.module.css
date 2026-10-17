@@ -123,10 +123,11 @@
  */
 .preview {
   position: absolute;
-  top: calc(var(--preview-w) * -0.19);
+  /* Figma centres every preview 89.5px down the row (600-wide units): 407 tall → raised 114, 345 tall → raised 83. */
+  top: calc(var(--preview-w) * (179 - var(--preview-h, 407)) / 1200);
   left: calc(var(--status) + var(--gutter) + var(--text-col) + var(--preview-gap));
   width: var(--preview-w);
-  aspect-ratio: 600 / 407;
+  aspect-ratio: 600 / var(--preview-h, 407);
   border-radius: 8px;
   overflow: hidden;
   box-shadow: -10px 10px 20px 0 rgba(65, 55, 55, 0.2);

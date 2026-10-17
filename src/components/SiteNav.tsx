@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { nameRow } from "@/content/site";
-import { playHoverTick } from "@/lib/hoverSound";
 import Logo from "./Logo";
 import styles from "./SiteNav.module.css";
 
@@ -21,7 +20,6 @@ export default function SiteNav({ cursorColor }: { cursorColor?: string }) {
           data-cursor-row=""
           data-cursor-color={cursorColor}
           data-cursor-interactive=""
-          onPointerEnter={() => playHoverTick()}
           style={{ "--dot": nameRow.color } as React.CSSProperties}
         >
           <span className={styles.status} aria-hidden>

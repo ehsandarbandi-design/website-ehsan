@@ -7,6 +7,9 @@
   --text-title: #2d2c2b;
   --text-body: #918f85;
   --text-bold: #4b4a4a;
+
+  /* 1px image stroke (case study). */
+  --stroke: #e2dfdb;
 }
 
 *,

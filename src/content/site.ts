@@ -8,6 +8,8 @@ export type Row = {
   image?: { src: string; alt: string };
   /** Optional looping video preview, played while the row is hovered. */
   video?: string;
+  /** Preview height when 600px wide, from Figma (default 407). The preview stays centred beside the text. */
+  previewHeight?: number;
   href?: string;
   /** Status-dot and cursor color while hovered. The cursor keeps it after leaving the row. */
   color?: string;
@@ -45,7 +47,7 @@ export const introRow: Row = {
   title: "Hi, I’m Ehsan.",
   subtitle: "I design AI products people actually trust.",
   description:
-    "For 9 years, I've worked at the intersection of AI, enterprise systems, and the messy organizational reality of getting things actually built — for Coca-Cola, TIAA, Cigna, and early-stage startups. I'm best at finding the real problem inside a complex brief, making AI feel trustworthy and intuitive, and building the alignment that turns good design into shipped products.",
+    "I've worked at the intersection of AI, enterprise systems, and the messy organizational reality of getting things actually built — for Coca-Cola, TIAA, Cigna, and early-stage startups. I'm best at finding the real problem inside a complex brief, making AI feel trustworthy and intuitive, and building the alignment that turns good design into shipped products.",
   href: "/about",
   color: colors.intro,
   cursorLabel: "View about Ehsan",
@@ -54,10 +56,10 @@ export const introRow: Row = {
 export const projects: Row[] = [
   {
     id: "nexus",
-    title: "Nexus AI — Coca-Cola",
-    subtitle: "Lead UX/UI Designer · Enterprise AI · Design Systems",
+    title: "Rebuilding the AI tool employees had stopped using",
+    subtitle: "Product Designer · Enterprise AI · Design Systems",
     description:
-      "Designed the AI assistant and design system for 90,000+ employees. Went from zero to shipped in 8 weeks, with the system later adopted across Coca-Cola's broader AI product suite.",
+      "Rebuilt Coca-Cola's abandoned internal AI tool for 50,000+ employees in 4 months: familiar AI patterns, answers employees can verify against the source, and a design system built to grow.",
     image: { src: "/images/nexus.png", alt: "Nexus AI × Coca-Cola" },
     video: "/videos/nexus.mp4",
     href: "/nexusai",
@@ -66,11 +68,13 @@ export const projects: Row[] = [
   },
   {
     id: "dustin",
-    title: "Launching a New Real Estate Agent",
+    title: "A website that grows without a designer",
     subtitle: "Product Strategy · Positioning · Design & Build",
     description:
-      "Launched a newly licensed San Francisco agent with no track record: positioning built on his finance background, a site shipped in two days, a price-guessing game that turned visitors into leads, and a rebuild he can grow without me.",
-    image: { src: "/images/dustin.png", alt: "Real Estate IQ game round and price reveal" },
+      "Launched a newly licensed San Francisco agent with no track record. Positioning built on his finance background. A website shipped in two days. A game that turned visitors into leads and a rebuild he can grow without me.",
+    image: { src: "/images/dustin.png", alt: "The rebuilt site's home page: a San Francisco skyline above the fog" },
+    video: "/case-studies/dustin/header.mp4",
+    previewHeight: 345,
     href: "/dustin",
     color: colors.dustin,
     cursorLabel: caseStudyLabel,
@@ -79,10 +83,11 @@ export const projects: Row[] = [
     id: "tailorbird",
     title: "Tailorbird",
     subtitle: "Lead UX/UI Designer · Enterprise AI · Design Systems",
-    // TODO: this copy is duplicated from Nexus AI in the Figma file — replace with Tailorbird's summary.
     description:
-      "Designed the AI assistant and design system for 90,000+ employees. Went from zero to shipped in 8 weeks, with the system later adopted across Coca-Cola's broader AI product suite.",
-    image: { src: "/images/tailorbird.png", alt: "Tailorbird app on a phone" },
+      "Designed the human fallback for an AI measurement model: a five-minute mobile flow that gets tenants to photograph exactly what the model couldn't see, so contractors can bid without a site visit.",
+    image: { src: "/case-studies/tailorbird/thumbnail-poster.jpg", alt: "Tailorbird app on a phone" },
+    video: "/case-studies/tailorbird/thumbnail.mp4",
+    href: "/tailorbird",
     color: colors.tailorbird,
     cursorLabel: caseStudyLabel,
   },
@@ -93,6 +98,7 @@ export const projects: Row[] = [
     description:
       "Designed a fitness app for people who aren't athletes — focused on lowering the barrier to outdoor activity through social motivation, location discovery, and lightweight tracking.",
     image: { src: "/images/allaround.png", alt: "All Around app icon over a city map" },
+    href: "/allaround",
     color: colors.allaround,
     cursorLabel: caseStudyLabel,
   },
@@ -103,6 +109,7 @@ export const projects: Row[] = [
     description:
       "Designed the 0→1 product experience for a personalized skincare startup — from early user research through a quiz-driven e-commerce flow, validated with real users, and pitched to investors.",
     image: { src: "/images/punchbird.png", alt: "Punchbird natural bespoke skincare branding" },
+    href: "/punchbird",
     color: colors.punchbird,
     cursorLabel: caseStudyLabel,
   },

@@ -2,7 +2,6 @@
 
 import { Eye } from "lucide-react";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { unlockHoverSound } from "@/lib/hoverSound";
 import { FINE_POINTER, useMediaQuery } from "@/lib/useMediaQuery";
 import styles from "./CustomCursor.module.css";
 
@@ -51,8 +50,6 @@ export default function CustomCursor() {
   useEffect(() => {
     if (!enabled) return;
     const root = document.documentElement;
-    // Hover ticks are site-wide; audio unlocks on the visitor's first click or key press.
-    const releaseSound = unlockHoverSound();
 
     let frame = 0;
     let px = -100;
@@ -100,7 +97,6 @@ export default function CustomCursor() {
     window.addEventListener("blur", onLeave);
     return () => {
       cancelAnimationFrame(frame);
-      releaseSound();
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerover", onOver);
       window.removeEventListener("pointerdown", onDown);

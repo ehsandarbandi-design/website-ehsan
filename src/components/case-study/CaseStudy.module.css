@@ -20,11 +20,24 @@
   margin: 280px auto 0; /* column top at 280px; the navbar is fixed, so it takes no space */
 }
 
+/* 40px between sections; 32px before a subsection; 16px between related pieces (label, heading, body, images). */
 .content {
   display: flex;
   flex-direction: column;
-  gap: 72px;
+  gap: 40px;
   min-width: 0;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* A subsection (standalone H3) sits 32px below what comes before it: the 16px gap plus 16px. */
+.section > .subsection:not(:first-child) {
+  margin-top: 16px;
 }
 
 /* ---------- Title (110:3323) ---------- */
@@ -32,7 +45,8 @@
 .title {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
+  scroll-margin-top: 128px; /* clear the fixed navbar when the menu jumps here */
   line-height: 1.5;
 }
 
@@ -56,7 +70,7 @@
 .column {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
   font-size: 16px;
   line-height: 1.5;
   scroll-margin-top: 128px; /* clear the fixed navbar */
@@ -99,6 +113,17 @@
   color: var(--text-body);
 }
 
+.body ul {
+  margin: 0;
+  padding-left: 1.25em;
+}
+
+/* Figma paragraph spacing (16px), opted into per page with `paragraphSpacing`. */
+.paragraphSpacing .body > * + *,
+.paragraphSpacing .body li + li {
+  margin-top: 16px;
+}
+
 .body strong {
   font-weight: 400;
   color: var(--text-bold);
@@ -123,7 +148,10 @@
 .image {
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: -10px 10px 20px 0 rgba(65, 55, 55, 0.2);
+}
+
+.stroke {
+  border: 1px solid var(--stroke);
 }
 
 .image img,
@@ -131,6 +159,13 @@
   display: block;
   width: 100%;
   height: auto;
+}
+
+.embed {
+  display: block;
+  width: 100%;
+  border: 0;
+  pointer-events: none;
 }
 
 /* Swipeable row of Image Free slides; padding keeps the shadows from being clipped. */
@@ -144,6 +179,13 @@
   scroll-padding-left: 40px;
   scrollbar-width: none;
   outline: none;
+}
+
+/* Stays within the column: no bleed past its edges, the next slide peeks in from inside it. */
+.contained {
+  margin: 0;
+  padding: 0;
+  scroll-padding-left: 0;
 }
 
 .gallery::-webkit-scrollbar {
@@ -243,5 +285,11 @@
     margin: -20px -16px -70px;
     padding: 20px 16px 70px;
     scroll-padding-left: 16px;
+  }
+
+  .contained {
+    margin: 0;
+    padding: 0;
+    scroll-padding-left: 0;
   }
 }

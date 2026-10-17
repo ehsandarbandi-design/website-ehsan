@@ -1,6 +1,8 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "dev", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev"], "port": 3000 }
+    { "name": "dev", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev"], "port": 3000, "autoPort": true },
+    { "name": "old-version", "runtimeExecutable": "npx", "runtimeArgs": ["next", "dev", "/private/tmp/claude-501/-Users-ehsan-Desktop-Website-Portfolio-Website/06697f3d-d391-42f5-8629-b2070a203506/scratchpad/old-version"], "port": 3001, "autoPort": true },
+    { "name": "second-look", "runtimeExecutable": "npx", "runtimeArgs": ["-y", "serve@14.2.4", "-l", "4300", "/Users/ehsan/Desktop/Second Look"], "port": 4300 }
   ]
 }
