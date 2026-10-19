@@ -47,7 +47,7 @@ export const introRow: Row = {
   title: "Hi, I’m Ehsan.",
   subtitle: "I design AI products people actually trust.",
   description:
-    "I've worked at the intersection of AI, enterprise systems, and the messy organizational reality of getting things actually built — for Coca-Cola, TIAA, Cigna, and early-stage startups. I'm best at finding the real problem inside a complex brief, making AI feel trustworthy and intuitive, and building the alignment that turns good design into shipped products.",
+    "I've worked at the intersection of AI, enterprise systems, and the messy organizational reality of getting things actually built, for Coca-Cola, TIAA, Cigna, and early-stage startups. I'm best at finding the real problem inside a complex brief, making AI feel trustworthy and intuitive, and building the alignment that turns good design into shipped products.",
   href: "/about",
   color: colors.intro,
   cursorLabel: "View about Ehsan",
@@ -56,7 +56,7 @@ export const introRow: Row = {
 export const projects: Row[] = [
   {
     id: "nexus",
-    title: "Rebuilding the AI tool employees had stopped using",
+    title: "Nexus AI / Rebuilding the AI tool employees did not use",
     subtitle: "Product Designer · Enterprise AI · Design Systems",
     description:
       "Rebuilt Coca-Cola's abandoned internal AI tool for 50,000+ employees in 4 months: familiar AI patterns, answers employees can verify against the source, and a design system built to grow.",
@@ -81,8 +81,8 @@ export const projects: Row[] = [
   },
   {
     id: "tailorbird",
-    title: "Tailorbird",
-    subtitle: "Lead UX/UI Designer · Enterprise AI · Design Systems",
+    title: "Tailorbird / Designing the human fallback for an AI measurement model",
+    subtitle: "Product Designer · Enterprise AI · Design Systems",
     description:
       "Designed the human fallback for an AI measurement model: a five-minute mobile flow that gets tenants to photograph exactly what the model couldn't see, so contractors can bid without a site visit.",
     image: { src: "/case-studies/tailorbird/thumbnail-poster.jpg", alt: "Tailorbird app on a phone" },
@@ -93,7 +93,7 @@ export const projects: Row[] = [
   },
   {
     id: "allaround",
-    title: "All Around",
+    title: "AllAround / An outdoor app for people who haven't started moving",
     subtitle: "UX Research · Interaction Design · Visual Design",
     description:
       "Designed a fitness app for people who aren't athletes — focused on lowering the barrier to outdoor activity through social motivation, location discovery, and lightweight tracking.",
@@ -104,7 +104,7 @@ export const projects: Row[] = [
   },
   {
     id: "punchbird",
-    title: "Punchbird",
+    title: "Punchbird / A personalized skincare brand, from quiz to pitch",
     subtitle: "Product Strategy · UX Research · Interaction Design · 0→1",
     description:
       "Designed the 0→1 product experience for a personalized skincare startup — from early user research through a quiz-driven e-commerce flow, validated with real users, and pitched to investors.",
