@@ -1,8 +1,8 @@
 /* Figma "Navbar" (node 103:3287) — shared by the homepage and case studies. */
 
 /*
- * Fixed to the top. Figma: a white fill fading from 50% opacity at the top edge to 0 at the bottom
- * (the background blur is set to 0px).
+ * Fixed to the top. Figma: white at 40% with a 100 background blur (Figma's blur value is twice the CSS radius).
+ * Only the unprefixed backdrop-filter: Lightning CSS drops it when both forms are declared, and adds the prefix itself.
  */
 .nav {
   position: fixed;
@@ -12,7 +12,8 @@
   z-index: 10;
   height: 104px;
   padding: 24px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(50px);
 }
 
 /* Logo 68 + 27 + name row 630 + 27 + 396 alignment filler = 1148, centred. */

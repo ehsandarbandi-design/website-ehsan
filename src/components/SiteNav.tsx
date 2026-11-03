@@ -6,7 +6,7 @@ import Logo from "./Logo";
 import styles from "./SiteNav.module.css";
 
 /**
- * Figma "Navbar" (node 103:3287): fixed to the top with a progressive blur; logo + the name row,
+ * Figma "Navbar" (node 103:3287): fixed to the top with a frosted (40% white, blurred) background; logo + the name row,
  * which links home. `cursorColor` sets the cursor over the name; omit it to use the page theme.
  */
 export default function SiteNav({ cursorColor }: { cursorColor?: string }) {
